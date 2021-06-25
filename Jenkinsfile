@@ -41,9 +41,8 @@ spec:
         container('docker') {
           sh "echo ${env.GIT_COMMIT}"
           // Build new image
-          sh "until docker container ls; do sleep 3; done && docker image build -t  ${env.IMAGE_REPO}:${env.GIT_COMMIT} ."
+          sh "until docker container ls; do sleep 3; done && docker image build -t  rsvp:${env.GIT_COMMIT} ."
           // Publish new image
-          sh "docker login --username $DOCKERHUB_CREDS_USR --password $DOCKERHUB_CREDS_PSW && docker image push ${env.IMAGE_REPO}:${env.GIT_COMMIT}"
         }
       }
     }
@@ -72,7 +71,7 @@ spec:
               echo $GIT_REPO_EMAIL
               echo $GIT_COMMIT
               ls -lth
-              yq eval '.image.repository = env(IMAGE_REPO)' -i values.yaml
+              yq eval '.image.repository = rsvp' -i values.yaml
               yq eval '.image.tag = env(GIT_COMMIT)' -i values.yaml
               cat values.yaml
               pwd
