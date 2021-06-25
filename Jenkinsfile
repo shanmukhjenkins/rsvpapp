@@ -49,8 +49,8 @@ spec:
     stage('Deploy') {
       environment {
         GIT_CREDS = credentials('github')
-        HELM_GIT_REPO_URL = "github.com/<GITHUB_USERNAME>/rsvpapp-helm-cicd.git"
-        GIT_REPO_EMAIL = '<PUT_EMAIL_ID>'
+        HELM_GIT_REPO_URL = "github.com/shanmukhjenkins/rsvpapp-helm-cicd.git"
+        GIT_REPO_EMAIL = 'winatuotest1@gmail.com'
         GIT_REPO_BRANCH = "master"
           
        // Update above variables with your user details
