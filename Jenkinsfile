@@ -28,15 +28,8 @@ spec:
 """
         }
     }
-  environment {
-      IMAGE_REPO = "<DOCKERHUB_USER>/rsvp"
-      // Instead of DOCKERHUB_USER, use your Dockerhub name
-  }
   stages {
     stage('Build') {
-      environment {
-        DOCKERHUB_CREDS = credentials('dockerhub')
-      }
       steps {
         container('docker') {
           sh "echo ${env.GIT_COMMIT}"
